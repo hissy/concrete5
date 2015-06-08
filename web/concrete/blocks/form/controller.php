@@ -548,7 +548,7 @@ class Controller extends BlockController
             if (!$this->noSubmitFormRedirect) {
                 if ($this->redirectCID > 0) {
                     $pg = Page::getByID($this->redirectCID);
-                    if (is_object($pg) && $pg->cID) {
+                    if (is_object($pg) && !$pg->isError() && !empty($pg->getCollectionPath())) {
                         $this->redirect($pg->getCollectionPath());
                     }
                 }
