@@ -12,10 +12,6 @@ class Backup extends DashboardPageController {
 	public function run_backup() {
         if($this->token->validate('run_backup')) {
 
-            //@TODO this backup stuff needs to be reworked since we're not using adodb anymore
-            $this->set('message', t('This has not been implemented in 5.7'));
-            return;
-
             $encrypt = ($this->post('useEncryption')?1:0);
             $tp = new TaskPermission();
             if ($tp->canBackup()) {
