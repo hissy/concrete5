@@ -14,6 +14,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class JobCommand extends Command
 {
+    use EnvironmentTrait;
+
     protected function configure()
     {
         $this
@@ -34,6 +36,7 @@ Returns codes:
 More info at http://documentation.concrete5.org/developers/appendix/cli-commands#c5-job
 EOT
             )
+            ->addEnvironmentOption()
         ;
     }
 

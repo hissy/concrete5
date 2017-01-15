@@ -16,6 +16,8 @@ use Exception;
 
 class ConfigCommand extends Command
 {
+    use EnvironmentTrait;
+
     const OPERATION_GET = 'get';
     const OPERATION_SET = 'set';
 
@@ -34,6 +36,7 @@ class ConfigCommand extends Command
             ->addArgument('value', InputArgument::OPTIONAL, 'The new value of the configuration item')
             ->addOption('environment', 'e', InputOption::VALUE_REQUIRED, 'The environment (if not specified, we\'ll work with the configuration item valid for all environments)')
             ->addOption('generated-overrides', 'g', InputOption::VALUE_NONE, 'Set this option to save configurations to the generated_overrides folder')
+            ->addEnvironmentOption()
         ;
         $this->setHelp(<<<EOT
 When setting values that may be evaluated as boolean (true/false), null or numbers, but you want to store them as strings, you can enclose those values in single or double quotes.

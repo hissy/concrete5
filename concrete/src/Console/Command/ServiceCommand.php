@@ -14,6 +14,8 @@ use Exception;
 
 final class ServiceCommand extends Command
 {
+    use EnvironmentTrait;
+
     protected function configure()
     {
         $serviceHandles = array();
@@ -60,6 +62,7 @@ EOT
             ->addArgument('operation', InputArgument::REQUIRED, 'The operation to perform (check|update)')
             ->addArgument('rule-options', InputArgument::IS_ARRAY, 'List of key-value pairs to pass to the rules (example: foo=bar baz=foo)')
             ->setHelp(trim($help))
+            ->addEnvironmentOption()
         ;
     }
 

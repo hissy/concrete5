@@ -9,6 +9,8 @@ use Exception;
 
 class ClearCacheCommand extends Command
 {
+    use EnvironmentTrait;
+
     protected function configure()
     {
         $this
@@ -22,6 +24,7 @@ Returns codes:
 More info at http://documentation.concrete5.org/developers/appendix/cli-commands#c5-clear-cache
 EOT
             )
+            ->addEnvironmentOption()
        ;
     }
 

@@ -11,6 +11,8 @@ use Exception;
 
 class UpdatePackageCommand extends Command
 {
+    use EnvironmentTrait;
+
     protected function configure()
     {
         $this
@@ -27,6 +29,7 @@ Returns codes:
 More info at http://documentation.concrete5.org/developers/appendix/cli-commands#c5-package-update
 EOT
             )
+            ->addEnvironmentOption()
         ;
     }
 

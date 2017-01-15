@@ -15,6 +15,8 @@ use Symfony\Component\Console\Question\ConfirmationQuestion;
 
 class UpdateCommand extends Command
 {
+    use EnvironmentTrait;
+
     protected function configure()
     {
         $this
@@ -27,6 +29,7 @@ Returns codes:
   1 errors occurred
 EOT
             )
+            ->addEnvironmentOption()
         ;
     }
     protected function execute(InputInterface $input, OutputInterface $output)

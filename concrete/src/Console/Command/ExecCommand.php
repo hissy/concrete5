@@ -9,6 +9,8 @@ use Exception;
 
 class ExecCommand extends Command
 {
+    use EnvironmentTrait;
+
     protected function configure()
     {
         $this
@@ -31,6 +33,7 @@ Returns codes:
 More info at http://documentation.concrete5.org/developers/appendix/cli-commands#c5-exec
 EOT
             )
+            ->addEnvironmentOption()
             ;
     }
     protected function execute(InputInterface $input, OutputInterface $output)
