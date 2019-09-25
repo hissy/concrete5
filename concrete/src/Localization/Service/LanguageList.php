@@ -19,10 +19,13 @@ class LanguageList implements ApplicationAwareInterface
     public function getLanguageList()
     {
         $excludeScriptSpecific = true;
-        $site = $this->app->make('site')->getActiveSiteForEditing();
-        if (is_object($site)) {
-            $siteConfig = $site->getConfigRepository();
-            $excludeScriptSpecific = !$siteConfig->get('multilingual.support_script_specific_locale');
+
+        if ($this->app->isInstalled()) {
+            $site = $this->app['site']->getSite();
+            if (is_object($site)) {
+                $siteConfig = $site->getConfigRepository();
+                $excludeScriptSpecific = !$siteConfig->get('multilingual.support_script_specific_locale');
+            }
         }
         $languages = Language::getAll(true, $excludeScriptSpecific);
 
