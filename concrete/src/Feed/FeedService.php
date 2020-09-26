@@ -1,11 +1,15 @@
 <?php
 namespace Concrete\Core\Feed;
 
+use Concrete\Core\Application\ApplicationAwareInterface;
+use Concrete\Core\Application\ApplicationAwareTrait;
 use Concrete\Core\Cache\Adapter\ZendCacheDriver;
 use Zend\Feed\Reader\Reader;
 
-class FeedService
+class FeedService implements ApplicationAwareInterface
 {
+    use ApplicationAwareTrait;
+
     /**
      * Loads a newsfeed object.
      *
@@ -17,6 +21,11 @@ class FeedService
     {
         if ($cache !== false) {
             Reader::setCache(new ZendCacheDriver('cache/expensive', $cache));
+        }
+
+        $client = $this->app->make('http/client');
+        if (is_object($client)) {
+            Reader::setHttpClient($client);
         }
 
         // Load the RSS feed, either from remote URL or from cache
