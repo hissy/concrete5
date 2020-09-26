@@ -669,8 +669,8 @@ return [
         'enable_permissions_protection' => true,
         'check_threshold' => 172800,
         'services' => [
-            'get_available_updates' => 'http://www.concrete5.org/tools/update_core',
-            'inspect_update' => 'http://www.concrete5.org/tools/inspect_update',
+            'get_available_updates' => 'https://www.concrete5.org/tools/update_core',
+            'inspect_update' => 'https://www.concrete5.org/tools/inspect_update',
         ],
         // Set to true to skip checking if there's a newer core version available (useful for example if the core is upgraded via composer)
         'skip_core' => false,
@@ -812,7 +812,7 @@ return [
         // Community Translation instance offering concrete5 translations
         'community_translation' => [
             // API entry point of the Community Translation instance
-            'entry_point' => 'http://translate.concrete5.org/api',
+            'entry_point' => 'https://translate.concrete5.org/api',
             // API Token to be used for the Community Translation instance
             'api_token' => '',
             // Languages below this translation progress won't be considered
@@ -824,18 +824,18 @@ return [
         ],
     ],
     'urls' => [
-        'concrete5' => 'http://www.concrete5.org',
+        'concrete5' => 'https://www.concrete5.org',
         'concrete5_secure' => 'https://www.concrete5.org',
-        'newsflow' => 'http://newsflow.concrete5.org',
+        'newsflow' => 'https://newsflow.concrete5.org',
         'background_feed' => '//backgroundimages.concrete5.org/wallpaper',
         'privacy_policy' => '//www.concrete5.org/legal/privacy-policy',
         'background_feed_secure' => 'https://backgroundimages.concrete5.org/wallpaper',
-        'background_info' => 'http://backgroundimages.concrete5.org/get_image_data.php',
+        'background_info' => 'https://backgroundimages.concrete5.org/get_image_data.php',
         'videos' => 'https://www.youtube.com/user/concrete5cms/videos',
         'help' => [
-            'developer' => 'http://documentation.concrete5.org/developers',
-            'user' => 'http://documentation.concrete5.org/editors',
-            'forum' => 'http://www.concrete5.org/community/forums',
+            'developer' => 'https://documentation.concrete5.org/developers',
+            'user' => 'https://documentation.concrete5.org/editors',
+            'forum' => 'https://www.concrete5.org/community/forums',
             'slack' => 'https://www.concrete5.org/slack',
         ],
         'paths' => [
