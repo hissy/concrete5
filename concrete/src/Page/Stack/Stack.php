@@ -502,8 +502,10 @@ class Stack extends Page
             $ms = Section::getDefaultSection();
         } else {
             $c = Page::getCurrentPage();
-            $ms = Section::getBySectionOfSite($c);
-            if (!is_object($ms)) {
+            if (!$c->isGeneratedCollection()) {
+                $ms = Section::getBySectionOfSite($c);
+            }
+            if (!isset($ms) || !is_object($ms)) {
                 $ms = $detector->getPreferredSection();
             }
         }
